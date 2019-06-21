@@ -20,7 +20,7 @@ Dst.Close
 end function
 
 function PayloadBase64()
-set img = ReadFileToString(PayloadsPath & "\Base64ToImage\chara.jpg.b64")
+set img = ReadFileToString(".\Payloads\Base64ToImage\chara.jpg.b64")
 Base64ToImage img, ".\chara.jpg"
 end function
 
