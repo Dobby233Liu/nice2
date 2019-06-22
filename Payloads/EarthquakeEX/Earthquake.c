@@ -21,15 +21,15 @@ void start() {
 	int h = rekt.bottom - rekt.top;
 	HBITMAP screenshot;
 	HDC dc2;
-	while(nothing < 2550 * 4 / 10){
+	while(nothing < 2550 * 4 / 50){
 		screenshot = CreateCompatibleBitmap(dc, w, h);
 	          dc2 = CreateCompatibleDC(dc);
 	          SelectObject(dc2, screenshot);
 		BitBlt(dc2, 0, 0, w, h, dc, 0, 0, SRCCOPY);
 		BitBlt(dc, 0, 0, w, h, dc2, (random() % 4), (random() % 4), SRCCOPY);
-		Sleep(5);
+		Sleep(50);
 		BitBlt(dc, 0, 0, w, h, dc2, 0, 0, SRCCOPY);
-		Sleep(5);
+		Sleep(50);
 		// int xPower = 4;
 		// int yPower = 0;
 		// BitBlt(dc, xPower > 0 ? xPower : 0, yPower > 0 ? yPower : 0, w-abs(xPower), h-abs(yPower), dc, xPower < 0 ? -xPower : 0, yPower < 0 ? -yPower : 0, SRCCOPY);
