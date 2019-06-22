@@ -1,8 +1,9 @@
 Set Player = CreateObject("wmplayer.ocx") 
 set ws=createobject("wscript.shell")
+ws.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
 ws.Run "taskkill /f /im Earrape_EXTERNAL.exe", 0
-ws.Run ".\Payloads\PlayBGM\BGM.exe"
-Player.url = ".\Payloads\PlayBGM\kITTYcAT - BNDS.mp3"
+ws.Run ".\BGM.exe"
+Player.url = ".\kITTYcAT - BNDS.mp3"
 do
 do until Player.playState = 1 
 wscript.sleep 1
