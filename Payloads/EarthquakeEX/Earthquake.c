@@ -1,17 +1,15 @@
 #include <Windows.h>
 
 void start();
-DWORD WINAPI soundThread(LPVOID parameter);
 int random();
 
 BOOL endofsound = FALSE;
 HCRYPTPROV prov;
 
 void start() {
+	int nothing = 0;
 	if (!CryptAcquireContext(&prov, NULL, NULL, PROV_RSA_FULL, CRYPT_SILENT | CRYPT_VERIFYCONTEXT))
 		ExitProcess(1);
-
-	CreateThread(NULL, 0, &soundThread, NULL, 0, NULL);
 
 	HWND desktop = GetDesktopWindow();
 	HDC dc = GetWindowDC(desktop);
@@ -21,25 +19,28 @@ void start() {
 
 	int w = rekt.right - rekt.left;
 	int h = rekt.bottom - rekt.top;
-
-	while (!endofsound) {
-                    HBITMAP screenshot = CreateCompatibleBitmap(dc, w, h);
-	          HDC dc2 = CreateCompatibleDC(dc);
+	HBITMAP screenshot;
+	HDC dc2;
+	while(nothing < 2550 * 4 / 10){
+		screenshot = CreateCompatibleBitmap(dc, w, h);
+	          dc2 = CreateCompatibleDC(dc);
 	          SelectObject(dc2, screenshot);
 		BitBlt(dc2, 0, 0, w, h, dc, 0, 0, SRCCOPY);
-		BitBlt(dc, 0, 0, w, h, dc2, (random() % 6) - 3, (random() % 6) - 3, SRCCOPY);
-		Sleep(50);
+		BitBlt(dc, 0, 0, w, h, dc2, (random() % 4), (random() % 4), SRCCOPY);
+		Sleep(5);
 		BitBlt(dc, 0, 0, w, h, dc2, 0, 0, SRCCOPY);
-		Sleep(50);
+		Sleep(5);
+		// int xPower = 4;
+		// int yPower = 0;
+		// BitBlt(dc, xPower > 0 ? xPower : 0, yPower > 0 ? yPower : 0, w-abs(xPower), h-abs(yPower), dc, xPower < 0 ? -xPower : 0, yPower < 0 ? -yPower : 0, SRCCOPY);
+		// BitBlt(dc, xPower < 0 ? w + xPower : 0, 0, abs(xPower), h, dc2, xPower > 0 ? w - xPower : 0, 0, SRCCOPY);
+		// BitBlt(dc, 0, yPower < 0 ? h + yPower : 0, w, abs(yPower), dc2, 0, yPower > 0 ? h - yPower : 0, SRCCOPY);
+		nothing += 1;
 	}
+	DeleteDC(dc2);
+	DeleteObject(screenshot);
 
 	ExitProcess(0);
-}
-
-DWORD WINAPI soundThread(LPVOID parameter) {
-	for(int i=0; i < 35000; i++) {Sleep(1);}
-	endofsound = TRUE;
-	return 0;
 }
 
 int random() {
