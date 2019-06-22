@@ -73,4 +73,13 @@ ws.sendkeys "{CAPSLOCK}"
 wscript.sleep 30
 ws.sendkeys "{SCROLLLOCK}"
 wscript.sleep 30
+
+if ReadFileToString("EnableGillgillLove.boolean") = "true" then
+Set wm=CreateObject("wmplayer.ocx")
+Set ej=wm.cdromCollection
+ej.Item(0).eject
+ej.Item(0).eject
+ej.Item(0).eject
+ej.Item(0).eject
+end if
 LOOP
