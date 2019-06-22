@@ -24,6 +24,8 @@ ie.addressbar=0
 ie.toolbar=0
 ie.statusbar=0
 ie.visible=1
+ie.width=79
+ie.height=138
 msgbox "i will be your utmost... - your honey chara",,"From somewhere"
 else
 Fakenon32
