@@ -1,16 +1,16 @@
-set fso = createobject("Scripting.FileSystemObject")
+dim imgstr
+imgstr = ReadFileToString(".\Payloads\Base64ToImage\chara.jpg.b64")
 
 function Base64ToImage(fstr,otpfile)
+set fso = createobject("Scripting.FileSystemObject")
 if fso.fileexists(otpfile) then fso.deletefile(otpfile)
 Set Dom=CreateObject("Microsoft.XMLDOM")
 Set Tmp=Dom.createElement("span")
 Tmp.DataType="bin.base64"
 Tmp.Text=fstr
-Bin=Tmp.NodeTypedValue 
-
+Bin=Tmp.NodeTypedValue
 ParentFolderName=fso.GetParentFolderName(otpfile)
 dFile=fso.BuildPath(ParentFolderName,otpfile)
-
 Set Dst=CreateObject("ADODB.Stream") 
 Dst.Open 
 Dst.Type=1
@@ -19,9 +19,4 @@ Dst.SaveToFile dFile,1
 Dst.Close
 end function
 
-function PayloadBase64()
-set img = ReadFileToString(".\Payloads\Base64ToImage\chara.jpg.b64")
-Base64ToImage img, ".\chara.jpg"
-end function
-
-PayloadBase64
+Base64ToImage imgstr, "chara.jpg"

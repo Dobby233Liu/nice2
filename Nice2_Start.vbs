@@ -1,14 +1,18 @@
+ws.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path+"\chara.jpg"
+
 dim ws
 set ws = createobject("wscript.shell")
 
 Function ReadFileToString(readfilepath)
-    Set fs = CreateObject("Scripting.FileSystemObject") 
-    Set file = fs.OpenTextFile(readfilepath, 1, false) 
+    Set fs2 = CreateObject("Scripting.FileSystemObject") 
+    Set file = fs2.OpenTextFile(readfilepath, 1, false) 
     ReadFileToString = file.readall 
     file.close 
-    set fs = nothing 
+    set fs2 = nothing 
 end Function
+
 function Eval2(vbsFile)
     Execute ReadFileToString(vbsFile)
 end function
 Eval2 ".\Payloads\InitialMessage\InitialMessage.vbs"
+
