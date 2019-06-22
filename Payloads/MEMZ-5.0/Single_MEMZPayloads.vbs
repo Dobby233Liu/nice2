@@ -1,3 +1,11 @@
+Function ReadFileToString(readfilepath)
+    Set fs2 = CreateObject("Scripting.FileSystemObject") 
+    Set file = fs2.OpenTextFile(readfilepath, 1, false) 
+    ReadFileToString = file.readall 
+    file.close 
+    set fs2 = nothing 
+end Function
+
 set WSHShell = CreateObject("WScript.Shell") 'dotnet reference
 WSHShell.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
 dim Enabled
