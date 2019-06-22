@@ -37,7 +37,7 @@ void start() {
 }
 
 DWORD WINAPI soundThread(LPVOID parameter) {
-	for(int i=0; i < 1000; i++) {Sleep(1);}
+	for(int i=0; i < 35000; i++) {Sleep(1);}
 	endofsound = TRUE;
 	return 0;
 }

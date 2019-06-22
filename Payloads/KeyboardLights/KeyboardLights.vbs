@@ -6,13 +6,14 @@ Function ReadFileToString(readfilepath)
     set fs2 = nothing 
 end Function
 
+set ws = CreateObject("WScript.Shell")
+ws.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
 dim Enabled
 Enabled = ReadFileToString("EnableGillgillLove.boolean")
 if Enabled = "false" then
 WScript.Quit
 end if
 
-set ws = CreateObject("WScript.Shell")
 ws.sendkeys "{NUMLOCK}"
 wscript.sleep 100
 
