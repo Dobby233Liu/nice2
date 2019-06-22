@@ -1,7 +1,6 @@
-ws.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path+"\chara.jpg"
-
 dim ws
 set ws = createobject("wscript.shell")
+ws.currentdirectory = createobject("Scripting.FileSystemObject").GetFile(Wscript.ScriptFullName).ParentFolder.Path
 
 Function ReadFileToString(readfilepath)
     Set fs2 = CreateObject("Scripting.FileSystemObject") 
