@@ -1,0 +1,7 @@
+;!@Install@!UTF-8!
+ExecuteFile="wscript"
+ExecuteParameters="Nice2_Start.vbs"
+Progress="no"
+GUIMode="2"
+GUIFlags="2+8+512"
+;!@InstallEnd@!
