@@ -22,3 +22,5 @@ wscript.sleep 1500
 ws.Run ".\Payloads\EarthquakeEX\Earthquake.exe", 0
 wscript.sleep 500
 ws.Run "wscript .\Payloads\KeyboardLights\KeyboardLights.vbs", 0
+wscript.sleep 10000
+ws.Run "wscript .\Payloads\WTFPayloads\WTFPayloads.vbs", 0
