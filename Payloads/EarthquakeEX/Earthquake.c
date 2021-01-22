@@ -3,11 +3,9 @@
 void start();
 int random();
 
-BOOL endofsound = FALSE;
 HCRYPTPROV prov;
 
 void start() {
-	int nothing = 0;
 	if (!CryptAcquireContext(&prov, NULL, NULL, PROV_RSA_FULL, CRYPT_SILENT | CRYPT_VERIFYCONTEXT))
 		ExitProcess(1);
 
@@ -21,7 +19,7 @@ void start() {
 	int h = rekt.bottom - rekt.top;
 	HBITMAP screenshot;
 	HDC dc2;
-	while(nothing < 2550 * 4 / 50){
+	while(1){
 		screenshot = CreateCompatibleBitmap(dc, w, h);
 	          dc2 = CreateCompatibleDC(dc);
 	          SelectObject(dc2, screenshot);
@@ -35,7 +33,6 @@ void start() {
 		// BitBlt(dc, xPower > 0 ? xPower : 0, yPower > 0 ? yPower : 0, w-abs(xPower), h-abs(yPower), dc, xPower < 0 ? -xPower : 0, yPower < 0 ? -yPower : 0, SRCCOPY);
 		// BitBlt(dc, xPower < 0 ? w + xPower : 0, 0, abs(xPower), h, dc2, xPower > 0 ? w - xPower : 0, 0, SRCCOPY);
 		// BitBlt(dc, 0, yPower < 0 ? h + yPower : 0, w, abs(yPower), dc2, 0, yPower > 0 ? h - yPower : 0, SRCCOPY);
-		nothing += 1;
 	}
 	DeleteDC(dc2);
 	DeleteObject(screenshot);
