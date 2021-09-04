@@ -1,4 +1,5 @@
-#include<Windows.h>
+#include <Windows.h>
+
 void start();
 int random();
 LRESULT CALLBACK msgBoxHook(int nCode, WPARAM wParam, LPARAM lParam);
@@ -73,7 +74,7 @@ void start() {
 	FormatMessageW(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS, NULL,
 		errorIds[random() % ERROR_COUNT], MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), msg, 8192, NULL);
 
-	MessageBoxW(NULL, msg, "Microsoft Windows", MB_OK);
+	MessageBoxW(NULL, msg, L"Microsoft Windows", MB_OK);
 	LocalFree(msg);
 
 	UnhookWindowsHookEx(hook);
